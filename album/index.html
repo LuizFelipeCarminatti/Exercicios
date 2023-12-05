@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album de Fotos</title>
+    <style>
+        #img{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #btns{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #btns button{
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: teal;
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <article id="img"></article>
+
+    <article id="btns">
+        <button id="imagem">imagem1</button>
+        <button id="imagem">imagem2</button>
+        <button id="imagem">imagem3</button>
+        <button id="imagem">imagem4</button>
+    </article>
+
+    <script>
+        let imgs = document.querySelectorAll('#imagem')
+        let article = document.getElementById('img')
+
+        imgs.forEach(imagem => {
+            imagem.onclick = function () {
+                article.innerHTML = ''
+                let img = document.createElement('img')
+                img.src = `${imagem.textContent}.jpg`
+                article.appendChild(img)
+            }
+        })
+    </script>
+</body>
+</html>

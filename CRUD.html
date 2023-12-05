@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancoo de Dados</title>
+    <style>
+        tr th{
+            padding: 10px;
+        }
+        button{
+            padding: 10px;
+            background-color: #07a;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        .del{
+            background-color: #a00;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+    <button  onclick="add()">Novo</button>
+
+    <script>
+
+        let DATABASE = 'banco de dados'
+
+        let ls = localStorage.getItem(DATABASE)
+
+        let data = ls ? JSON.parse(ls) : { id: 0, list: [] }
+
+        function render() {
+            const tbody = document.getElementById('tbody')
+            tbody.innerHTML = ''
+            data.list.map(item => {
+                let tr = document.createElement('tr')
+                tr.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.nome}</td>
+                    <td>
+                        <button onclick="edit(${item.id})">Editar</button>
+                        <button class="del" onclick="del(${item.id})">Deletar</button>
+                    </td>
+                `
+                tbody.appendChild(tr)
+            })
+        }
+
+        function add() {
+            var value = ''
+            if(!(value = prompt('Informe o seu nome!', value))) return;
+            data.id++
+            data.list.push({
+                id: data.id,
+                nome: value
+            })
+            render()
+            save()
+        }
+
+        function edit(id, nome) {
+            if(!(nome = prompt('Informe o seu nome!', nome))) return;
+            data.list = data.list.map(item => {
+                if(item.id === id)
+                    item.nome = nome
+                return item
+            })
+            render()
+            save()
+        }
+
+        function del(id) {
+            if(!confirm('Deseja deletar esse registro?')) return;
+            data.list = data.list.filter(item => item.id != id)
+            render()
+            save()
+        }
+
+        function save() {
+            localStorage.setItem(DATABASE, JSON.stringify(data))
+        }
+
+        window.addEventListener('load', function () {
+            render()
+        })
+    </script>
+</body>
+</html>
