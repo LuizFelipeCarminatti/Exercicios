@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>teste1</title>
+    <style>
+        ul li {
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
     <input type="text" name="" id="nome">
-    <p id="res"></p>
+    <p id="res"></p>    
+    <p id="nomes"></p>
 
     <script>
-        let array = ['gabriel', 'douglas', 'mateus', 'felipe', 'luiz', 'renato', 'ivanir']
+        let array = ['gabriel', 'douglas', 'mateus', 'felipe', 'luiz', 'renato', 'ivanir', 'Ana', 'Renato', 'Joao', 'Arthur', 'Rodrigo']
+        const nomes = document.getElementById('nomes')
+
+        array.forEach(nome => {
+            let ul = document.createElement('ul')
+            ul.innerHTML = `
+                <li>${nome}</li>
+            `
+            nomes.appendChild(ul)
+        })
+
         let res = document.getElementById('res')
         let texto = document.getElementById('nome')
         texto.addEventListener('input', () => {
             array.forEach(nome => {
                 if (nome.charAt() == texto.value) {
-                    res.innerHTML = nome
+                    res.innerHTML = `<b>${nome}</b>`
                 }else if (texto.value == '') {
                     res.innerHTML = ''
                 }
