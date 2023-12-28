@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa com Foco</title>
+</head>
+<body>
+    <input type="text" name="teste" id="valor" onfocus="foco()" onblur="desfoco()">
+    <p id="msg"></p>
+
+    <script>
+
+        let msg = document.getElementById('msg')
+        function foco() {
+            msg.innerHTML = 'Caixa ativada'
+        }
+
+        function desfoco() {
+            msg.innerHTML = 'perdeu foco'
+        }
+    </script>
+</body>
+</html>

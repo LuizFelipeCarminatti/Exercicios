@@ -41,6 +41,7 @@ input[type = 'button']{
     color: aliceblue;
 }
 
-#valorProduto{
+#finalizarCompra{
     color: rgb(39, 172, 84);
+    font-size: 30px;
 }

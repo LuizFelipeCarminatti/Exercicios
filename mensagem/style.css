@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+.mensagem{
+    background-image: url('imagem.jpg');
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 90px 0;
+    opacity: 0;
+    transition: all 0.1s linear;
+}
+
+.btn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+.abrirJanela{
+    opacity: 1;
+    transform: translate(-50%, -35%);
+}

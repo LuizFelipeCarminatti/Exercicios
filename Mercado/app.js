@@ -23,6 +23,7 @@ let alimentos = document.getElementById('alimentos')
 let valorProduto = document.getElementById('valorProduto')
 let btnAdd = document.getElementById('btnAdd')
 let btnComprar = document.getElementById('btnComprar')
+let finalizarCompra = document.getElementById('finalizarCompra')
 
 mercadorias.forEach(produto => {
     let ul = document.createElement('ul')
@@ -40,5 +41,5 @@ btnAdd.addEventListener('click', function () {
 })
 
 btnComprar.addEventListener('click', function () {
-    comprado.innerHTML = 'Comprado'
+    finalizarCompra.innerHTML = 'Comprado'
 })
