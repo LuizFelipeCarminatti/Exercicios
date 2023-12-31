@@ -11,10 +11,15 @@ function escolher() {
 let numeros = []
 let sorteado = document.getElementById('sorteados')
 function sortear() {
+    sorteado.innerHTML = ''
     for (let i = 0; i < 6; i++) {
         var aleatorio = Math.floor(Math.random() * (1 + 60) + 1)
         sorteado.innerHTML += `${aleatorio}, `
-        numeros.push(aleatorio)
+        if (numeros.includes(aleatorio)) {
+            return
+        }else{
+            numeros.push(aleatorio)
+        }
     }
 }
 

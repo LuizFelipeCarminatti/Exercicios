@@ -1,5 +1,9 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+}
+body, html {
+    height: 100vh;
 }
 .mensagem{
     background-image: url('imagem.jpg');
@@ -13,9 +17,8 @@
     text-align: center;
     padding: 90px 0;
     opacity: 0;
-    transition: all 0.1s linear;
+    transition: all 0.5s linear;
 }
-
 .btn{
     position: absolute;
     right: 20px;
