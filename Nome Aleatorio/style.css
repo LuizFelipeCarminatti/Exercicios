@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.principal{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#conteudo{
+    width: 640px;
+    height: 600px;
+}
+
+#conteudo p{
+    text-align: center;
+}
+
+#gerador{
+    border: none;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 95%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: teal;
+    color: #fff;
+}
