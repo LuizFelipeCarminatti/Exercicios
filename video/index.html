@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Vídeo</title>
+</head>
+<body>
+    
+    <article>
+        <video src="video.mp4" id="meuVideo"></video>
+        <div id="menu">
+            <div class="global">
+                <button wm-play="meuVideo"><span class="material-symbols-outlined pausePlay">play_arrow</span></button>
+                <button wm-pause="meuVideo"><span class="material-symbols-outlined pausePlay">pause</span></button>
+            </div>
+            <p id="render" class="global"></p>
+            <input type="range" class="global" name="progresso" value="0" min="0" max="100" step="1" id="progresso" wm-progresso="meuVideo">
+
+            <span class="material-symbols-outlined global" id="iconeVolume" wm-iconeVolume="meuVideo">volume_up</span>
+            <input type="range" value="100" min="0" max="100" step="1" name="volume" id="volume" class="global" wm-volume="meuVideo">
+            <span class="material-symbols-outlined global screen" wm-fullscreen="meuVideo">fullscreen</span>
+        </div>
+    </article>
+
+    <script src="app.js"></script>
+</body>
+</html>

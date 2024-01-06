@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+video{
+    width: 1000px;
+}
+
+article{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+}
+
+#menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(0deg, #000000bc 20%, #ffffff87);
+    box-shadow: 3px 3px 10px #ffffff67;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    opacity: 0;
+    transition: all 0.2s linear;
+}
+
+#render{
+    color: #fff;
+}
+
+#menu.mostrar{
+    opacity: 1;
+}
+
+.pausePlay{
+    color: #fff;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+.screen{
+    color: #fff;
+    cursor: pointer;
+}
+
+.global{
+    color: #fff;
+    cursor: pointer;
+}
+
+#progresso{
+    width: 50%;
+    height: 5px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+}
+
+span:hover{
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.326);
+    border-radius: 100px;
+}
