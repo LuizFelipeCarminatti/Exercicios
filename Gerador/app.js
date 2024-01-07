@@ -25,8 +25,8 @@ function gerador() {
     } else if (opcao.value == 'objeto') {
         for (let i = 0; i < qtd.value; i++) {
             let aleatorio = Math.floor(Math.random() * nomes.length)
-            arrayNovo += `${nomes[aleatorio]}, `
+            arrayNovo += `{nome: ${nomes[aleatorio]}},<br> `
         }
-        codigo.innerHTML = `let valores = {${arrayNovo}}`
+        codigo.innerHTML = `let nomes = [<br>${arrayNovo}}]`
     }
 }

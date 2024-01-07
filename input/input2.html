@@ -14,6 +14,7 @@
     <input type="text" name="" id="nome">
     <p id="res"></p>    
     <p id="nomes"></p>
+    <p id="escolhidos"></p>
 
     <script>
         let array = ['gabriel', 'douglas', 'mateus', 'felipe', 'luiz', 'renato', 'ivanir', 'Ana', 'Renato', 'Joao', 'Arthur', 'Rodrigo']
@@ -31,13 +32,20 @@
         let texto = document.getElementById('nome')
         texto.addEventListener('input', () => {
             array.forEach(nome => {
-                if (nome.charAt() == texto.value) {
-                    res.innerHTML = `<b>${nome}</b>`
+                if (nome.toUpperCase().charAt() == texto.value) {
+                    res.innerHTML += `<b>${nome}</b>`
                 }else if (texto.value == '') {
                     res.innerHTML = ''
                 }
             })
 
+        })
+
+        let escolha = document.getElementById('escolhidos')
+        texto.addEventListener('keydown', (event) => {
+           if (event.key == "Enter") {
+                escolha.innerHTML += `${texto.value} `
+           }
         })
     </script>
 </body>

@@ -29,9 +29,11 @@ function configuracao(id) {
     document.querySelector(`[wm-iconeVolume=${id}]`).onclick = e => {
         if (video.volume == 1) {
             video.volume = 0
+            volume.value = 0
             icone.textContent = 'volume_off'
         } else {
             video.volume = 1
+            volume.value = 100
             icone.textContent = 'volume_up'
         }
     }
@@ -40,7 +42,10 @@ function configuracao(id) {
         video.play()
     }
 
-    document.querySelector(`[wm-volume=${id}]`).oninput = e => {
+
+
+    let volume = document.querySelector(`[wm-volume=${id}]`)
+    volume.oninput = e => {
         video.volume = e.target.value / 100
         if (video.volume == 1 || video.volume == 0.9 || video.volume == 0.8 || video.volume == 0.7 || video.volume == 0.6) {
             icone.textContent = 'volume_up'
