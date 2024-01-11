@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+</head>
+<body>
+    <input type="text" name="valor" id="valor">
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+    <button onclick="add()">Adicionar</button>
+
+    <script>
+        const DATABASE = 'banco De Dados'
+
+        const ls = localStorage.getItem(DATABASE)
+
+        const dados = ls ? JSON.parse(ls) : { id: 0, lista: [] }
+
+        function render() {
+            let tbody = document.getElementById('tbody')
+            tbody.innerHTML = ''
+            dados.lista.map(item => {
+                let tr = document.createElement('tr')
+                tr.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.nome}</td>
+                    <td>
+                        <button onclick="deletar(${item.id})">Deletar</button>
+                    </td>
+                `
+                tbody.appendChild(tr)
+            })
+        }
+
+        let valor = document.getElementById('valor') 
+        function add() {
+            dados.id++
+            dados.lista.push({
+                id: dados.id,
+                nome: valor.value
+            })
+
+            render()
+            salvar()
+        }
+
+        function deletar(id) {
+            dados.lista = dados.lista.filter(item => item.id != id)
+            dados.id = 0
+            render()
+            salvar()
+        }
+
+        function salvar() {
+            localStorage.setItem(DATABASE, JSON.stringify(dados))
+        }
+
+        window.addEventListener('load', function () {
+            render()
+        })
+    </script>
+</body>
+</html>

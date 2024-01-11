@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        div{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        p.seta {
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000;
+            width: 20px;
+            height: 20px;
+            transform: rotate(-45deg);
+            animation-name: seta;
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+            transition: all 2s linear;
+            padding: 10px;
+        }
+
+        p.seta::before {
+            content: '';
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000;
+            width: 20px;
+            height: 20px;
+            display: block;
+            position: relative;
+            left: 0px;
+            top: -20px;
+        }
+
+        p.seta::after {
+            content: '';
+            border-top: 1px solid rgb(0, 0, 0);
+            border-left: 1px solid rgb(0, 0, 0);
+            width: 20px;
+            height: 20px;
+            display: block;
+            transform: rotate(-90deg);
+            position: relative;
+            left: -22px;
+            top: -20px;
+        }
+
+        @keyframes seta {
+            from{
+                opacity: 1;
+                transform: translate(0px, 50px) rotate(-45deg);
+            }
+            to{
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="seta"></p>
+    </div>
+</body>
+
+</html>

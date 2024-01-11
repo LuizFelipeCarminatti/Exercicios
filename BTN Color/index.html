@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>BTN Luz</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .menuBtn{
+            display: flex;
+        }
+        .btn{
+            position: relative;
+            background-color: #3d3e3f;
+            width: 50px;
+            height: 25px;
+            border-radius: 20px;
+            margin: 0 10px;
+            padding: 3px;
+        }
+        .circle{
+            position: absolute;
+            background-color: #fff;
+            width: 18px;
+            height: 18px;
+            border-radius: 100px;
+        }
+        .efeito{
+            transform: translateX(25px);
+        }
+    </style>
+</head>
+<body>
+    <div class="menuBtn">
+        <span class="material-symbols-outlined sol">light_mode</span>
+        <div class="btn" btn-color>
+            <div class="circle"></div>
+        </div>
+        <span class="material-symbols-outlined lua">clear_night</span>        
+    </div>
+
+    <script>
+        let sol = document.querySelector('.sol')
+        let btn = document.querySelector('.btn')
+        let lua = document.querySelector('.lua')
+        let circle = document.querySelector('.circle')
+        sol.style.color = '#37715D'
+        btn.style.backgroundColor = '#37715D'
+        document.querySelector('[btn-color]').onclick = function () {
+            if (!circle.classList.contains('efeito')) {
+                circle.classList.add('efeito')
+                document.body.style.backgroundColor = '#202327'
+                btn.style.backgroundColor = '#3d3e3f'
+                sol.style.color = '#000'
+                lua.style.color = '#37715D'
+            }else if(circle.classList.contains('efeito')){
+                circle.classList.remove('efeito')
+                document.body.style.backgroundColor = '#fff'
+                btn.style.backgroundColor = '#37715D'
+                sol.style.color = '#37715D'
+                lua.style.color = '#000'
+            }
+        }
+    </script>
+</body>
+</html>

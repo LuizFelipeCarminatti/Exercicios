@@ -7,4 +7,5 @@ links.forEach(link => {
         })
         link.classList.add('efeito')
     }
+    document.querySelector(`.menu a[href='#index']`).classList.add('efeito')
 })
