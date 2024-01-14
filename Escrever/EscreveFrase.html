@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escreve Frase</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .intro {
+            display: flex;
+        }
+
+        .typing {
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .typing::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 95%;
+            border-right: 2px solid black;
+            right: -5px;
+            animation: blink 1s infinite ease;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="intro">
+        <h1 class="fixed-text"></h1>
+        <h1 class="typing"></h1>
+    </div>
+
+    <script>
+        const mensagens = ['Depois de tudo, Tudo é possível, Vou continuar atrás do todo, Serei eu o tudo que eu preciso ser.', 'Em uma época em que querem ser diferentes, Todas as mentes e corações são iguais, Ser é ter uma mente diferente.']
+
+        let typing = document.querySelector('.typing')
+
+        let messageIndex = 0
+        let characterIndex = 0
+        let currentMessage = ''
+        let currentCharacters =''
+
+        function funcao() {
+
+            if (messageIndex === mensagens.length) {
+                messageIndex = 0
+            }
+
+            currentMessage = mensagens[messageIndex]
+            currentCharacters = currentMessage.slice(0, characterIndex++)
+            typing.textContent = currentCharacters
+
+            if (currentCharacters.length === currentMessage.length) {
+                messageIndex++
+                characterIndex = 0
+            }
+        }
+
+        setInterval(funcao, 100)
+    </script>
+</body>
+
+</html>

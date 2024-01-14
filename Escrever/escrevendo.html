@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .escrever{
+            width: 200px;
+            height: 20px;
+            margin-left: 2px;
+            border-left: 2px solid;
+            background-color: #fff;
+            animation-name: escrevendo;
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+        }
+        .principal{
+            display: flex;
+        }
+        @keyframes escrevendo {
+            from{
+                transform: translateX(-50px);
+            }to{
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="principal">
+        <div class="nome"></div>
+        <div class="escrever"></div>
+    </div>
+
+    <script>
+        let nomes = ['Naruto', 'Sasuke', 'Sakura']
+        let nome = document.querySelector('.nome')
+        let cont = 0
+        setInterval(() => {
+            if (cont === nomes.length - 1) {
+                cont = 0
+            }else{
+                cont++
+            }
+            nome.innerHTML = nomes[cont]
+        }, 3000);
+
+        nome.innerHTML = nomes[0]
+    </script>
+</body>
+</html>

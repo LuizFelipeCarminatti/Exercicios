@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1::after{
+            content: '|';
+            margin-left: 5px;
+            animation-name: pisca;
+            animation-iteration-count: infinite;
+            animation-duration: .7s;
+        }
+
+        @keyframes pisca {
+            0%, 100%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Tenho muito para falar, mas não tenho voz
+
+        Tenho um coração cheio de sentimentos,
+        mas meu coração não fala.
+
+        Quem sabe um dia eu me curo
+        do que não sai do meu coração.
+    </h1>
+
+    <script>
+        const texto = document.querySelector('h1')
+        function escrevendo(elemento) {
+            const textoArray = elemento.innerHTML.split('')
+            elemento.innerHTML = ''
+
+            textoArray.forEach((letra, i) => {
+                setTimeout(() => {
+                    texto.innerText += letra    
+                }, 75 * i);
+            });
+        }
+        escrevendo(texto)
+    </script>
+</body>
+</html>
