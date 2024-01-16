@@ -8,6 +8,7 @@
     <style>
         body {
             font-family: sans-serif;
+            /*#C221B2   #6257FF */
         }
 
         .intro {
@@ -17,6 +18,22 @@
         .typing {
             position: relative;
             margin-left: 10px;
+            font-size: 40px;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation-name: gradiente;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+        }
+
+        @keyframes gradiente {
+            0%{
+                background-image: linear-gradient(to left,  #C221B2, #6257FF);
+            }50%{
+                background-image: linear-gradient(to left, #6257FF, #C221B2);
+            }100%{
+                background-image: linear-gradient(to left, #C221B2, #6257FF);
+            }
         }
 
         .typing::after {
@@ -24,7 +41,7 @@
             position: absolute;
             width: 1px;
             height: 95%;
-            border-right: 2px solid black;
+            border-right: 2px solid rgb(0, 0, 0);
             right: -5px;
             animation: blink 1s infinite ease;
         }
@@ -49,7 +66,7 @@
     </div>
 
     <script>
-        const mensagens = ['Depois de tudo, Tudo é possível, Vou continuar atrás do todo, Serei eu o tudo que eu preciso ser.', 'Em uma época em que querem ser diferentes, Todas as mentes e corações são iguais, Ser é ter uma mente diferente.']
+        const mensagens = ['Stunning', 'Creative', 'Modern', 'Elegant', 'Responsive', 'Clean']
 
         let typing = document.querySelector('.typing')
 
@@ -74,7 +91,7 @@
             }
         }
 
-        setInterval(funcao, 100)
+        setInterval(funcao, 300)
     </script>
 </body>
 
