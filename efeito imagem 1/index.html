@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito Imagem</title>
+    <style>
+        ul li {
+            width: 200px;
+            list-style: none;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #d8d4d4;
+        }
+        
+        ul li div{
+            overflow: hidden;
+            height: 130px;
+            border-radius: 20px;
+            background-color: aqua;
+        }
+        
+        ul li div img {
+            width: 100%;
+        }
+
+        img {
+            transition: all 0.5s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.2);
+        }
+
+        .efeito {
+            transition: all 0.5s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div>
+                <img src="pexels-caleb-owens-19161138.jpg" alt="">
+            </div>
+                
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi culpa qui dolores nobis itaque dolorum.
+                Eveniet laudantium asperiores a sint reiciendis itaque iure amet quis voluptatum. Explicabo alias ipsum
+                ipsa.</p>
+        </li>
+    </ul>
+
+    <script>
+        document.querySelectorAll('li').forEach(li => {
+            li.onmouseout = function () {
+                li.classList.add('efeito')
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        a {
+            position: fixed;
+            top: 10px;
+            display: block;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 100px;
+            background-color: darkgrey;
+            padding: 5px;
+        }
+
+        .circle {
+            stroke-dasharray: 1105;
+            stroke-dashoffset: 1105;
+        }
+
+        main{
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <main></main>
+
+        <a href="#">
+            <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle" cx="20" cy="20" r="19" fill="none" stroke="black" stroke-width="2.0" stroke-miterlimit="0"></circle>
+            </svg>
+        </a>
+    </a>
+    <script>
+        //console.log(window.innerHeight) altura interna da janela e incluindo a altura da barra de rolagem ex 911px
+        //console.log(screen.height) Obtenha a altura total da sua tela:
+        //console.log(document.body.clientHeight) altura total da pagina
+        
+        let circle = document.querySelector('.circle')
+        window.addEventListener('scroll', function () {
+            if (window.scrollY) {
+                circle.style.strokeDashoffset = window.pageYOffset
+            }
+        })
+    </script>
+</body>
+
+</html>
