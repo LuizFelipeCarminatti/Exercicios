@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios</title>
+</head>
+<body>
+    <form name="usuariosForm" action="formulario" method="post">
+        <input type="text" name="nome" id="nome">
+        <button>Enviar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+
+        const axios = require('axios')
+        
+        document.usuariosForm.onsubmit = async e => {
+            e.preventDefault()
+
+            const form = e.target
+            const data = new FormData(form)
+
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data)
+            }
+
+            let resultado = document.getElementById('resultado')
+
+
+            try {
+                const resp = await axios.post(form.action, options)
+                const data = await resp.data
+                resultado.innerHTML = data
+            } catch (error) {
+                resultado.innerHTML = error
+            }
+        }
+    </script>
+</body>
+</html>

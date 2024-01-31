@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        article{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+        }
+        
+        article::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            height: 100%;
+            z-index: -1;
+            background-color: rgb(203, 54, 84);
+            transform: scale(0);
+            transform-origin: top left;
+        }
+
+        article:hover::before{
+            transform: scale(1);
+            transition: all .8s linear .80s;
+        }
+
+        article span{
+            position: absolute;
+        }
+
+        article span:nth-child(1),
+        article span:nth-child(3){
+            width: 100%;
+            height: 1px;
+            background-color: rgb(0, 0, 0);
+        }
+
+        article span:nth-child(2),
+        article span:nth-child(4){
+            width: 1px;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+        }
+        
+        article span:nth-child(1){
+            top: 0;
+            left: 0;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        article:hover span:nth-child(1){
+            transition: all 1s linear;
+            transform: scaleX(1);
+        }
+
+        article span:nth-child(3){
+            bottom: 0;
+            left: 0;
+            transform-origin: right;
+            transform: scaleX(0);
+        }
+
+        article:hover span:nth-child(3){
+            transition: all 1s linear 0.6s;
+            transform: scaleX(1);
+        }
+
+        article span:nth-child(2){
+            top: 0;
+            right: 0;
+            transform-origin: top;
+            transform: scaleY(0);
+        }
+
+        article:hover span:nth-child(2){
+            transition: all 1s linear;
+            transform: scaleY(1);
+        }
+
+        article span:nth-child(4){
+            bottom: 0;
+            left: 0;
+            transform-origin: bottom;
+            transform: scaleY(0);
+        }
+
+        article:hover span:nth-child(4){
+            transition: all 1s linear 0.8s;
+            transform: scaleY(1);
+        }
+    </style>
+</head>
+<body>
+    <article>
+        Luiz Felipe Carminatti
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </article>
+</body>
+</html>

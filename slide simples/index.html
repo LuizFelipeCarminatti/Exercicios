@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Simples</title>
+    <style>
+        img{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <img id="img">
+
+    <script>
+
+        let i = 0
+        let imagens = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg',]
+        function slide() {
+            
+            if (i < imagens.length - 1) {
+                i++
+            }else{
+                i = 0
+            }
+
+            document.getElementById('img').src = imagens[i]
+            
+        }
+        document.getElementById('img').src = imagens[0]
+        setInterval("slide()", 2000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegação</title>
+</head>
+<body>
+    <section id="conteudo"></section>
+    <button id="btn" onclick="next()">Next</button>
+
+    <script>
+        let conteudo = document.getElementById('conteudo')
+        let btn = document.getElementById('btn')
+        let paginas = ['primeira.html', 'segunda.html', 'terceira.html']
+        let i = -1
+
+        function next() {
+            if (i < paginas.length - 1) {
+                i++
+            }else{
+                i = 0
+            }
+            let url = ''
+
+            url = paginas[i]
+
+            fetch(url)
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+   
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key == 'Enter') {
+                next()
+            }
+        })
+    </script>
+</body>
+</html>
