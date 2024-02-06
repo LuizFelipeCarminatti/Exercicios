@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="axios.js"></script>
     <title>Axios</title>
 </head>
 <body>
@@ -12,14 +13,12 @@
     </form>
     <div id="resultado"></div>
     <script>
-
-        const axios = require('axios')
         
         document.usuariosForm.onsubmit = async e => {
             e.preventDefault()
 
             const form = e.target
-            const data = new FormData(form)
+            const formData = new FormData(form)
 
             const options = {
                 method: form.method,
@@ -28,11 +27,10 @@
 
             let resultado = document.getElementById('resultado')
 
-
             try {
                 const resp = await axios.post(form.action, options)
-                const data = await resp.data
-                resultado.innerHTML = data
+                const dados = await JSON.stringify(resp.data)
+                resultado.innerHTML = dados
             } catch (error) {
                 resultado.innerHTML = error
             }
