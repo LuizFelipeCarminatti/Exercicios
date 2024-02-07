@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="axios.js"></script>
     <title>Axios</title>
 </head>
 <body>
@@ -16,25 +15,27 @@
         
         document.usuariosForm.onsubmit = async e => {
             e.preventDefault()
-
+            
             const form = e.target
             const formData = new FormData(form)
-
+            
             const options = {
                 method: form.method,
-                body: new URLSearchParams(data)
+                body: new URLSearchParams(formData)
             }
-
+            
             let resultado = document.getElementById('resultado')
-
+            
             try {
-                const resp = await axios.post(form.action, options)
-                const dados = await JSON.stringify(resp.data)
+                const json = await axios.post(form.action, options)
+                const dados = await JSON.stringify(json.data)
                 resultado.innerHTML = dados
             } catch (error) {
                 resultado.innerHTML = error
             }
         }
-    </script>
+        
+        </script>
+        <script src="axios.js"></script>
 </body>
 </html>
