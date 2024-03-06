@@ -18,17 +18,17 @@
             
             const form = e.target
             const formData = new FormData(form)
-    
+            
             const options = {
                 method: form.method,
-                body: Object.fromEntries(formData)
+                body: new URLSearchParams(formData)
             }
             
             let resultado = document.getElementById('resultado')
             
             try {
                 const json = await axios.post(form.action, options)
-                const dados = await JSON.stringify(json.data.body)
+                const dados = await JSON.stringify(json.data)
                 resultado.innerHTML = dados
             } catch (error) {
                 resultado.innerHTML = error
