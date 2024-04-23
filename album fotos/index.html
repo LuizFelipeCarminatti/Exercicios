@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album de Fotos</title>
+    <style>
+        section{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+        }
+        article{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        img{
+            width: 300px;
+            margin: 1px;
+        }
+        li{
+            list-style: none;
+        }
+        .btns{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -300px);
+        }
+        .corBtn{
+            background-color: #5f9ea0;
+        }
+
+        button{
+            width: 100px;
+            height: 30px;
+            border: none;
+            background-color: rgb(141, 197, 199);
+        }
+    </style>
+</head>
+<body>
+    
+    <section>
+        <div class="btns">
+            <button clima-verao>verão</button>
+            <button clima-inverno>Inverno</button>
+            <button climas-todos>Todas</button>
+        </div>
+        <article>
+            <img src="inverno1.jpg" class="inverno todas">
+            <img src="inverno2.jpg" class="inverno todas">
+            <img src="inverno3.jpg" class="inverno todas">
+            <img src="verao1.jpg" class="verao todas">
+            <img src="verao2.jpg" class="verao todas">
+            <img src="verao3.jpg" class="verao todas">
+        </article>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -41,7 +41,7 @@
         </div>
         <span class="material-symbols-outlined lua">clear_night</span>        
     </div>
-
+    <h1>Funciona</h1>
     <script>
         let sol = document.querySelector('.sol')
         let btn = document.querySelector('.btn')
@@ -56,12 +56,14 @@
                 btn.style.backgroundColor = '#3d3e3f'
                 sol.style.color = '#000'
                 lua.style.color = '#37715D'
+                document.body.style.color = "#fff"
             }else if(circle.classList.contains('efeito')){
                 circle.classList.remove('efeito')
                 document.body.style.backgroundColor = '#fff'
                 btn.style.backgroundColor = '#37715D'
                 sol.style.color = '#37715D'
                 lua.style.color = '#000'
+                document.body.style.color = "#000"
             }
         }
     </script>

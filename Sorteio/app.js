@@ -43,8 +43,9 @@ function verificar() {
     })
     if(conter > 0) {
         sorteado.innerHTML = 'Não foi dessa vez'
-    } else {   
+    }else{   
         sorteado.innerHTML = 'Parabéns'
-  
     }
+
+
   }

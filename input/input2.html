@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,10 @@
         }
     </style>
 </head>
+
 <body>
     <input type="text" name="" id="nome">
-    <p id="res"></p>    
+    <p id="res"></p>
     <p id="nomes"></p>
     <p id="escolhidos"></p>
 
@@ -30,23 +32,34 @@
 
         let res = document.getElementById('res')
         let texto = document.getElementById('nome')
+        let escolha = document.getElementById('escolhidos')
+
+
         texto.addEventListener('input', () => {
             array.forEach(nome => {
                 if (nome.toUpperCase().charAt() == texto.value) {
                     res.innerHTML += `<b>${nome}</b>`
-                }else if (texto.value == '') {
+                } else if (nome.toLowerCase().charAt() == texto.value) {
+                    res.innerHTML += `<b>${nome}</b>`
+                } else if (texto.value == '') {
                     res.innerHTML = ''
                 }
             })
 
         })
 
-        let escolha = document.getElementById('escolhidos')
         texto.addEventListener('keydown', (event) => {
-           if (event.key == "Enter") {
-                escolha.innerHTML += `${texto.value} `
-           }
+            if (event.key == "Enter") {
+                array.map(nome => {
+                    if (nome.toUpperCase().charAt() == texto.value) {
+                        escolha.innerHTML += `${nome} `
+                    }else if (nome.toLowerCase().charAt() == texto.value) {
+                        escolha.innerHTML += `${nome} `
+                    }
+                })
+            }
         })
     </script>
 </body>
+
 </html>
