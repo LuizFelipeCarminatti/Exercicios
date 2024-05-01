@@ -18,7 +18,7 @@ function gerador() {
             let aleatorio = ' '
             for (let i = 0; i < qtd.value; i++) {
                 aleatorio = Math.floor(Math.random() * nomes.length)
-                arrayNovo += `${nomes[aleatorio]},`
+                arrayNovo += `${nomes[aleatorio]}, `
                 codigo.innerHTML = `let nomes = [${arrayNovo}]`
             }
         }

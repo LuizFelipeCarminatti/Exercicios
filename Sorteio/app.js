@@ -2,10 +2,14 @@ let escolhido = []
 function escolher() {
     let numerosEscolhidos = document.getElementById('numerosEscolhidos')
     let valor = document.getElementById('valor').value
-    numerosEscolhidos.innerHTML += `${valor}, `
-    escolhido.push(Number(valor))
-
-
+    if (valor > 60) {
+        alert('Não pode um número maior que 60')
+    }else if(valor < 1){
+        alert('Não pode um número menor que 1')
+    }else{
+        escolhido.push(Number(valor))
+        numerosEscolhidos.innerHTML += `${valor}, `
+    }
 }
 
 let numeros = []
@@ -14,14 +18,22 @@ function sortear() {
     sorteado.innerHTML = ''
     for (let i = 0; i < 6; i++) {
         var aleatorio = Math.floor(Math.random() * (1 + 60) + 1)
-        sorteado.innerHTML += `${aleatorio}, `
         if (numeros.includes(aleatorio)) {
-            return
+            sortear()
         }else{
             numeros.push(aleatorio)
         }
     }
+    numeros.sort((a, b) => a - b)
+    let ul = document.createElement('ul')
+    numeros.map(num => {
+        ul.innerHTML += `
+            <li>${num}, </li>
+        `
+        sorteado.appendChild(ul)
+    })
 }
+
 
 /* function verificar() {
     const numerosEncontrados = numeros.filter((numero) =>

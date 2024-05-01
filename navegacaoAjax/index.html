@@ -8,12 +8,29 @@
 <body>
     <section id="conteudo"></section>
     <button id="btn" onclick="next()">Next</button>
+    <button id="btn" onclick="prev()">Prev</button>
 
     <script>
         let conteudo = document.getElementById('conteudo')
         let btn = document.getElementById('btn')
         let paginas = ['primeira.html', 'segunda.html', 'terceira.html']
-        let i = -1
+        let i = 0
+
+        function prev() {
+            if (i == 0) {
+                i = paginas.length - 1
+            } else {
+                i--
+            }
+
+            let url = ''
+
+            url = paginas[i]
+
+            fetch(url)
+                .then(res => res.text())
+                .then(html => conteudo.innerHTML = html)
+        }
 
         function next() {
             if (i == paginas.length - 1) {

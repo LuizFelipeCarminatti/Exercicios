@@ -85,7 +85,6 @@
         function del(id) {
             if(!confirm('Deseja deletar esse registro?')) return;
             data.list = data.list.filter(item => item.id != id)
-            data.id = 0
             render()
             save()
         }

@@ -4,37 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja</title>
-    <style>
-        nav ul li{
-            display: inline-block;
-        }
-        img{
-            width: 300px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
         <ul>
-            <li id="btn"><p>45.90</p><img src="imagem1.jpg" alt=""></li>
-            <li id="btn"><p>59.00</p><img src="imagem2.jpg" alt=""></li>
-            <li id="btn"><p>38.70</p><img src="imagem3.jpg" alt=""></li>
-            <li id="btn"><p>60.90</p><img src="imagem5.jpg" alt=""></li>
+            <a href="produto1.html"><li id="btn"><p>45.90</p><img src="imagem1.jpg" alt=""></li></a>
+            <a href="produto2.html"><li id="btn"><p>59.00</p><img src="imagem2.jpg" alt=""></li></a>
+            <a href="produto3.html"><li id="btn"><p>38.70</p><img src="imagem3.jpg" alt=""></li></a>
+            <a href="produto4.html"><li id="btn"><p>60.90</p><img src="imagem4.jpg" alt=""></li></a>
         </ul>
     </nav>
-
-    <p id="res"></p>
-
-    <script>
-        let btns = document.querySelectorAll('#btn')
-        let res = document.getElementById('res')
-        let soma = 0
-        btns.forEach(btn => {
-            btn.onclick = function () {
-                soma += Number(btn.firstChild.textContent)
-                res.innerHTML = `R$${soma.toFixed(2)}`        
-            }
-        })
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>

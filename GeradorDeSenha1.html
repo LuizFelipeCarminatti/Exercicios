@@ -39,6 +39,12 @@
                 senha.value += caracteres[caractere]
             }
         }
+
+        document.querySelector('[copiar-senha]').onclick = function (e) {
+            e.preventDefault()
+            senha.select()
+            document.execCommand('copy')
+        }
     </script>
 </body>
 </html>

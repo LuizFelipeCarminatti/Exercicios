@@ -2,6 +2,9 @@ let res = document.getElementById('res')
 let valor = document.getElementById('valor')
 valor.addEventListener('input', function () {
     let ul = document.createElement('ul')
+    if (valor.value == '') {
+        return res.innerHTML = ''
+    }
     res.innerHTML = ''
     ul.innerHTML = `
         <li>1 x ${valor.value} = ${1 * valor.value}</li>

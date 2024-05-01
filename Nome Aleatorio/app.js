@@ -12,7 +12,10 @@ document.getElementById('gerador').onclick = function () {
     let aleatorio = Math.floor(Math.random() * nomes.length)
     let pessoa = nomes[aleatorio]
     conteudo.innerHTML = `
-        <img src="${pessoa.src}">
+        <img src="${pessoa.src}"/>
         <p>${pessoa.nome}</p>
     `
 }
+conteudo.innerHTML = `
+    <img src="pessoas.jpg"/>
+`
