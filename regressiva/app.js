@@ -1,11 +1,21 @@
 let numero = document.getElementById('numero')
-let clicar = document.getElementById('click')
+let incrementar = document.getElementById('incrementar')
+let decrementar = document.getElementById('decrementar')
+let passo = document.getElementById('passo')
 let contador = document.getElementById('contador')
 let linhaDeChegada = document.getElementById('linhaDeChegada')
 
-clicar.onclick = function () {
+incrementar.onclick = function () {
     contador.innerHTML = ' '
-    for (let i = 1; i <= numero.value; i++) {
+    for (let i = 0; i <= numero.value; i += Number(passo.value) || 1) {
+        contador.innerHTML += `${i} 👉🏻`
+    }
+    linhaDeChegada.innerHTML = '🏁'
+}
+
+decrementar.onclick = function () {
+    contador.innerHTML = ' '
+    for (let i = numero.value; i >= 0; i -= Number(passo.value) || 1) {
         contador.innerHTML += `${i} 👉🏻`
     }
     linhaDeChegada.innerHTML = '🏁'

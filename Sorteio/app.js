@@ -15,9 +15,9 @@ function escolher() {
 let numeros = []
 let sorteado = document.getElementById('sorteados')
 function sortear() {
-    sorteado.innerHTML = ''
+    sorteado.innerHTML = ' '
     for (let i = 0; i < 6; i++) {
-        var aleatorio = Math.floor(Math.random() * (1 + 60) + 1)
+        var aleatorio = Math.floor(Math.random() * (60 - 1) + 1)
         if (numeros.includes(aleatorio)) {
             sortear()
         }else{

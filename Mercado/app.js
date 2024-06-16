@@ -42,7 +42,7 @@ btnAdd.addEventListener('click', function () {
     });
     /* total += Number(valor.value) */
     valorProduto.innerHTML = `R$${total.toFixed(2)}`
-    comprado.innerHTML += `${nome.value}<br>` 
+    comprado.innerHTML = `${nome.value}<br>` 
 })
 
 btnComprar.addEventListener('click', function () {

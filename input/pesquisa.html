@@ -4,35 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste</title>
+    <title>Pesquisa de Nomes</title>
 </head>
 
 <body>
     <h2>Pesquisa de Nomes</h2>
     <input type="text" id="searchInput" oninput="searchNames()" placeholder="Digite um nome...">
     <p id="res"></p>
-    <p id="nomes"></p>
     <script>
         let pessoas = ['Gabriel', 'Douglas', 'Mateus', 'Felipe', 'Luiz', 'Ivanir', 'Ana', 'Renato', 'Joao', 'Arthur', 'Rodrigo']
-
-        const nomes = document.getElementById('nomes')
-
-        pessoas.forEach(nome => {
-            let ul = document.createElement('ul')
-            ul.innerHTML = `
-                <li>${nome}</li>
-            `
-            nomes.appendChild(ul)
-        })
 
         function searchNames() {
             var input = document.getElementById('searchInput').value.toUpperCase();
             var res = document.getElementById('res')
+            res.textContent = ""
 
-            for (var i = 0; i < pessoas.length; i++) {
-                var name = pessoas[i];
-                if (name.indexOf(input) > -1) {
-                    res.innerHTML = `${name}`
+            if (input == 0) {
+                res.textContent = " "
+            } else {
+                for (var i = 0; i < pessoas.length; i++) {
+                    let nome = pessoas[i].toUpperCase()
+                    if (nome.indexOf(input) >= 0) {
+                        res.textContent += `${pessoas[i]}, `
+                    }
                 }
             }
         }

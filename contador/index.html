@@ -7,7 +7,7 @@
     <style>
         button{
             border: none;
-            background-color: burlywood;
+            background-color: rgb(139, 222, 135);
             width: 100px;
             height: 30px;
             border-radius: 10px;
@@ -18,25 +18,30 @@
     <button onclick="somar()">+</button>
     <button onclick="subtrair()">-</button>
     <button onclick="zerar()">Zerar</button>
+    <label for="passo">Passo:</label> <input type="number" name="passo" id="passo" onfocus="this.value = ''">
 
     <p id="contagem"></p>
 
     <script>
-
-        let valor = 0
         let contagem = document.getElementById('contagem')
-        contagem.innerHTML = valor
+        let passo = document.getElementById('passo')
+        passo.value = 1
+        let valorInicial = 0
+        contagem.innerHTML = valorInicial
         function somar() {
-           contagem.innerHTML = valor++
+           valorInicial = valorInicial + Number(passo.value)
+           contagem.innerHTML = valorInicial
         }
 
         function subtrair() {
-            contagem.innerHTML = valor--
+            valorInicial = valorInicial - Number(passo.value)
+            contagem.innerHTML = valorInicial
         }
 
         function zerar() {
-            contagem.innerHTML = valor = 0
+            contagem.innerHTML = valorInicial = 0
+            passo.value = 1
         }
     </script>
 </body>
-</html>
+</html> 
