@@ -18,7 +18,7 @@ export default class UserCrud extends Component {
 
     state = { ...initialState }
 
-    componentWillMount() {
+    componentDidMount() {
         axios(baseUrl).then(resp => {
             this.setState({ list: resp.data })
         })
@@ -29,7 +29,7 @@ export default class UserCrud extends Component {
     }
 
     save() {
-        const user = this.state.user
+        const user = this.state.user  
         const method = user.id ? 'put' : 'post'
         const url = user.id ? `${baseUrl}/${user.id}` : baseUrl
         axios[method](url, user)
@@ -39,9 +39,9 @@ export default class UserCrud extends Component {
             })
     }
 
-    getUpdateList(user) {
+    getUpdateList(user, add = true) {
         const list = this.state.list.filter(u => u.id !== user.id)
-        if (user) list.unshift(user)
+        if (add) list.unshift(user)
 
         return list
     }
@@ -124,7 +124,7 @@ export default class UserCrud extends Component {
     remove(user) {
         axios.delete(`${baseUrl}/${user.id}`)
             .then(resp => {
-                const list = this.state.list.filter(u => u !== user)
+                const list = this.getUpdateList(user, false)
                 this.setState({ list })
             })
     }
