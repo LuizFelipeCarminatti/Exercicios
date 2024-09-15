@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#principal{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #6bb8e8;
+    width: 1000px;
+    height: 500px;
+}
+
+#palavra{
+    width: 400px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+}
+
+#principal div{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+#principal div div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    border: none;
+    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #28282b;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.letra{
+    border: none;
+    width: 50px;
+    margin: 10px;
+    position: relative;
+    top: 150px;
+    left: -35px;
+    border-bottom: 1px solid #000;
+    height: 50px;
+    outline: none;
+    text-align: center;
+    background-color: #6bb8e8;
+    font-size: 40px;
+}

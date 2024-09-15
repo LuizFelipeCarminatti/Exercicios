@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.table{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input{
+    height: 80px;
+    width: 80px;
+    border: 1px solid #000;
+    font-size: 80px;
+}
+
+.pontuacao{
+    font-size: 60px;
+    background-color: #272727;
+    color: beige;
+}
+
+.placar{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn button{
+    border: none;
+    background-color: brown;
+    border-radius: 10px;
+    width: 80px;
+    height: 30px;
+}
+
+.input{
+    text-align: center;
+}
+
+.nome, .nome1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #b83a3a;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

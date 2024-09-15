@@ -1,5 +1,4 @@
 const display = document.querySelector('.display')
-const button = document.querySelectorAll('button')
 
 function limpar() {
     display.innerHTML = 0

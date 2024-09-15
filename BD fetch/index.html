@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco De Dados</title>
+</head>
+<body>
+
+    <form action="" name="form" method="post">
+        <input type="text" name="nome" id="nome">
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        document.form.onsubmit = async (event) => {
+            event.preventDefault()
+
+            let form = e.target
+            let data = new FormData(form)
+
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data)
+            }
+            let dados = []
+            try {
+                let res = await fetch(form.action, options)
+                let json = await res.json()
+                dados.push(json)
+            } catch (error) {
+                console.log(error)
+            }    
+        }    
+    </script>
+</body>
+
+</html>

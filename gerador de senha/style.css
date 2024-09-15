@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: darkcyan;
+    font-size: 19px;
+}
+
+#principal{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.senha{
+    color: darkcyan;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+button{
+    background-color: darkcyan;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    font-size: 16px;
+}

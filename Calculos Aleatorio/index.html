@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+
+    <input type="number" id="numero1">
+    <input type="number" id="numero2">
+    <section id="calculos"></section>
+    <button onclick="calcular()">Calcular</button>
+
+
+    <script>
+        function calcular() {
+            let x = document.getElementById('numero1').value
+            let y = document.getElementById('numero2').value
+
+            const soma = (x, y) => `Soma ${Number(x) + Number(y)}`
+            const subtracao = (x, y) => `Subtração ${x - y}`
+            const multiplicacao = (x, y) => `Multiplicação ${x * y}`
+            const divisao = (x, y) => `Divisao ${x / y}`
+    
+            let arrayCalculos = []
+    
+            let somaF = soma(x, y)
+            let subtracaoF = subtracao(x, y)
+            let multiplicacaoF = multiplicacao(x, y)
+            let divisaoF = divisao(x, y)
+    
+            arrayCalculos.push(somaF, subtracaoF, multiplicacaoF, divisaoF)
+
+            let aleatorio = Math.floor(Math.random() * arrayCalculos.length)
+            
+            let calc = arrayCalculos[aleatorio]
+
+            document.getElementById('calculos').innerHTML = calc
+        }
+    </script>
+</body>
+</html>

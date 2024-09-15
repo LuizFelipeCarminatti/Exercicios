@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo da Velha</title>
+</head>
+<body>
+    
+    <header class="pontuacao">
+        <nav class="placar">
+            <span class="nome"></span>
+            <p class="j1">0</p>x<p class="j2">0</p>
+            <span class="nome1"></span>
+        </nav>
+    </header>
+    <section class="table">
+        <input type="text" name="q1" id="q1" oninput="jogoVelha()" maxlength="1" class="input">
+        <input type="text" name="q2" id="q2" oninput="jogoVelha()" maxlength="1" class="input">
+        <input type="text" name="q3" id="q3" oninput="jogoVelha()" maxlength="1" class="input"><br/>
+        <input type="text" name="q4" id="q4" oninput="jogoVelha()" maxlength="1" class="input">
+        <input type="text" name="q5" id="q5" oninput="jogoVelha()" maxlength="1" class="input">
+        <input type="text" name="q6" id="q6" oninput="jogoVelha()" maxlength="1" class="input"><br/>
+        <input type="text" name="q7" id="q7" oninput="jogoVelha()" maxlength="1" class="input">
+        <input type="text" name="q8" id="q8" oninput="jogoVelha()" maxlength="1" class="input">
+        <input type="text" name="q9" id="q9" oninput="jogoVelha()" maxlength="1" class="input">
+    </section>
+    <div class="btn">
+        <button onclick="iniciar()">Iniciar</button>
+        <button onclick="reiniciar()">Reiniciar</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

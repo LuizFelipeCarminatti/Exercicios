@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <p class="cidadeEstado"></p>
+    <script>
+        const sucesso = geoLocalizacao => console.log(geoLocalizacao.coords.latitude, geoLocalizacao.coords.longitude)
+
+        const erro = erro => console.error(erro)
+
+        const watchID = navigator.geolocation.watchPosition(sucesso, erro, {
+            enableHighAccuracy: true // busca uma localização mais precisa
+        }) //getCurrentPosition
+
+        navigator.geolocation.clearWatch(watchID) //Para de procurar a localização
+
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                fetch('https://ipapi.co/' + data.ip + '/json/')
+                    .then(response => response.json())
+                    .then(data => {
+                        const cidadeEstado = data.region_code;  // data.city
+                        fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${cidadeEstado}/distritos`)
+                            .then(response => response.json())
+                            .then(cidades => {
+                                const elements = document.querySelector('.cidadeEstado')
+                                let select = document.createElement('select')
+                                cidades.sort((a, b) => {
+                                    const nomeA = a.nome.toUpperCase(); // Ignorar maiúsculas e minúsculas
+                                    const nomeB = b.nome.toUpperCase();
+                                    return nomeA.localeCompare(nomeB);
+                                });
+                                cidades.forEach(cidade => {
+                                    let option = document.createElement('option')
+                                    option.innerHTML = cidade.nome
+                                    select.appendChild(option)
+                                })
+                                elements.appendChild(select)
+                            })
+                    })
+            })
+    </script>
+</body>
+
+</html>

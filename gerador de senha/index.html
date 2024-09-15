@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gerador de senhas</title>
+</head>
+<body>
+    <section id="principal">
+        <div class="senha">Selecionar opção</div><br/>
+
+        Quantidade caracteres <input type="number" id="qtd" min="1" max="15"><br/>
+
+        maiúscula <input type="checkbox" id="maiuscula"><br/>
+        minúscula <input type="checkbox" id="minuscula"><br/>
+        número <input type="checkbox" id="numero"><br/>
+        simbolos <input type="checkbox" id="simbolos"><br/>
+
+        <button onclick="gerarSenha()">Gerar</button>
+    </section>  
+
+    <script src="app.js"></script>
+</body>
+</html>
