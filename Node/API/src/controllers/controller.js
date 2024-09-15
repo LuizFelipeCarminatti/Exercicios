@@ -18,14 +18,15 @@ module.exports.formulario = (req, res) => {
     res.status(200).render('formulario')
 }
 
-module.exports.rotaUrl = (req, res) => {
-    const { nome } = req.body
-    const usuarioNome = nome.replace(/\s+/g, '-')
+module.exports.rotaUrl = async (req, res) => {
+    const { nome, email, password } = req.body
+    //const usuarioNome = nome.replace(/\s+/g, '-')
+    const user = await HomeModel.findOne({ email, password })
     /* const newUrl = url.format({
         pathname: '/usuario',
         query: { usuarioNome }
     }) */
-    const newUrl = `/usuario/${usuarioNome}/`
+    const newUrl = `/usuario/${user._id}/`
     res.redirect(newUrl)
 }
 

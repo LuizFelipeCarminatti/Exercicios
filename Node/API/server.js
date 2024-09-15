@@ -11,8 +11,10 @@ mongoose.connect(process.env.CONNECTION)
 
 const routes = require('./routes')
 const path = require('path')
+const helmet = require('helmet')
+const csurf = require('csurf')
 const port = process.env.PORT || 3000
-const { middleware } = require('./src/middlewares/middleware')
+const { middleware, checkCsurfError, csurfMiddleware } = require('./src/middlewares/middleware')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const flash = require('connect-flash')
@@ -28,13 +30,17 @@ const sessionOptions = session({
     }
 })
 
+app.use(helmet())
 app.use(sessionOptions)
 app.use(flash())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.resolve(__dirname, 'public')))
 app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
+app.use(csurf())
 app.use(middleware)
+app.use(checkCsurfError)
+app.use(csurfMiddleware)
 app.use(routes)
 
 app.on('Executando', () => {
