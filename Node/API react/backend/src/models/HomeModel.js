@@ -1,15 +1,16 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const HomeSchema = new Schema({
+const HomeShema = new Schema(
+    {
         nome: { type: String, required: true },
         password: { type: String, required: true },
         email: { type: String, required: true },
     }, { id: true }
 )
 
-let Model = mongoose.model('usuarios', HomeSchema)
+const Model = mongoose.model('usuarios', HomeShema)
 
-HomeSchema.path('_id')
+HomeShema.path('_id')
 
 module.exports = Model

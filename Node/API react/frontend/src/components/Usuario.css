@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #272727;
+}
+
+section.principal{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 10px;
+}
+
+form.formularioUser{
+    display: flex;
+    flex-direction: column;
+}
+
+div.inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+label.label{
+    color: #fff;
+    margin: 10px;
+}
+
+hr{
+    color: #fff;
+}
+
+div.btns{
+    text-align: center;
+    margin: 10px;
+}
+
+input.inputUser{
+    width: 500px;
+    height: 40px;
+}
+
+button{
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(40, 40, 192);
+    color: #fff;
+}
+
+button a {
+    color: #fff;
+    text-decoration: none;
+}

@@ -2,19 +2,21 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const cors = require('cors')
+const ejs = require('ejs')
 
 mongoose.connect(process.env.CONNECTION)
     .then(() => {
         app.emit('Executando')
     })
     .catch(error => console.error(error))
-
+// mongoose ODM - Object Document Mapper 
 const port = process.env.PORT || 3000
 const routes = require('./routes')
 const path = require('path')
 const helmet = require('helmet')
 const csurf = require('csurf')
-const { registro, checkCsurfError, csurfMiddleware } = require('./src/middlewares/middleware')
+const { checkCsurfError, csurfMiddleware } = require('./src/middlewares/middleware')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const flash = require('connect-flash')
@@ -31,6 +33,22 @@ const sessionOptions = session({
 })
 
 app.use(helmet())
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrcAttr: ["'unsafe-inline'"], // Apenas se necessário (melhor evitar)
+            scriptSrcElem: [
+                "'self'", // Permite scripts locais
+                "'unsafe-inline'", // Apenas se necessário (melhor evitar)
+                'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js', // CDN do axios
+                'http://localhost:3000/assets/js/app.js' // Seu script local
+            ]
+        }
+    }
+}));
+
+app.use(cors())
 app.use(sessionOptions)
 app.use(flash())
 app.use(express.json())
@@ -41,7 +59,6 @@ app.set('view engine', 'ejs')
 app.use(csurf())
 app.use(checkCsurfError)
 app.use(csurfMiddleware)
-app.use(registro)
 app.use(routes)
 
 app.on('Executando', () => {

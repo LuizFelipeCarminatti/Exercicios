@@ -1,39 +1,33 @@
 const url = require('url')
 const HomeModel = require('../models/HomeModel')
 
-const model = async (req, res) => {
+module.exports.salvarUsuario = async (req, res) => {
+
     const { nome, password, email } = req.body
-    await HomeModel.create({
-        nome: nome,
-        password: password,
-        email: email
-    })
-        .then(dados => console.log(dados))
-        .catch(error => console.error(error))
+
+    const account = new HomeModel({ nome, email, password })
+    
+    const saveAccountResponse = await account.save()
+    
+    res.redirect(`/usuario/${saveAccountResponse.id}`)
 }
-model
 
 module.exports.formulario = (req, res) => {
     req.flash('Formulário', 'Formulário carregado com sucesso!') // mensagem temporaria
     res.status(200).render('formulario')
 }
 
-module.exports.rotaUrl = async (req, res) => {
-    const { nome, email, password } = req.body
-    //const usuarioNome = nome.replace(/\s+/g, '-')
-    const user = await HomeModel.findOne({ email, password })
-    /* const newUrl = url.format({
-        pathname: '/usuario',
-        query: { usuarioNome }
-    }) */
-    const newUrl = `/usuario/${user._id}/`
-    res.redirect(newUrl)
-}
+//const usuarioNome = nome.replace(/\s+/g, '-')
+/* const newUrl = url.format({
+    pathname: '/usuario',
+    query: { usuarioNome }
+}) */
 
 module.exports.paginaUsuario = async (req, res) => {
     try {
         const user = await HomeModel.findById(req.params.id)
-        res.status(200).render('usuario', { user })
+        const arrayUsuario = [user]
+        res.status(200).render('usuario', { arrayUsuario })
         if (!user) {
             res.status(404).json({ message: 'Usuário não encontrado' })
         }

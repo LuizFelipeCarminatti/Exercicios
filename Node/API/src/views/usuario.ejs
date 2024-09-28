@@ -7,9 +7,9 @@
 </head>
 <body>
     <h1>Usuário</h1>
-    <% user.map(param => { %>
-        <p>param.nome</p>
-        <p>param.email</p>
+    <% arrayUsuario.map(propriedade => { %>
+        <p><%= propriedade.nome %></p>
+        <p><%= propriedade.email %></p>
     <% }) %>
 </body>
 </html>

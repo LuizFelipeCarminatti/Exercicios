@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -9,18 +10,19 @@ mongoose.connect(process.env.CONNECTION)
     })
     .catch(error => console.error(error))
 
-const port = process.env.PORT || 3000
+const cors = require('cors')
+const port = process.env.PORT || 8080
 const routes = require('./routes')
-const path = require('path')
+const path = require('path') 
 const helmet = require('helmet')
 const csurf = require('csurf')
-const { registro, checkCsurfError, csurfMiddleware } = require('./src/middlewares/middleware')
+const { checkCsurfError, csurfMiddleware } = require('./src/middlewares/middlewares')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const flash = require('connect-flash')
 
 const sessionOptions = session({
-    secret: '10c4c20c-0a1b-42af-b18c-cdac74ecf889',
+    secret: '8866d2e4-eb09-48bf-a52c-916d114115c9',
     store: MongoStore.create({ mongoUrl: process.env.CONNECTION }),
     resave: false,
     saveUninitialized: false,
@@ -30,19 +32,31 @@ const sessionOptions = session({
     }
 })
 
+app.use(cors())
 app.use(helmet())
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrcAttr: ["'unsafe-inline'"], // Apenas se necessário (melhor evitar)
+            scriptSrcElem: [
+                "'self'", // Permite scripts locais
+                "'unsafe-inline'", // Apenas se necessário (melhor evitar)
+                'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js', // CDN do axios
+                'http://localhost:3000/assets/js/app.js' // Seu script local
+            ]
+        }
+    }
+}));
 app.use(sessionOptions)
 app.use(flash())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.resolve(__dirname, 'public')))
-app.set('views', path.resolve(__dirname, 'src', 'views'))
-app.set('view engine', 'ejs')
+app.use('/frontend', express.static(path.resolve(__dirname, 'build')))
 app.use(csurf())
 app.use(checkCsurfError)
 app.use(csurfMiddleware)
-app.use(registro)
-app.use(routes)
+app.use('/', routes)
 
 app.on('Executando', () => {
     app.listen(port, () => {

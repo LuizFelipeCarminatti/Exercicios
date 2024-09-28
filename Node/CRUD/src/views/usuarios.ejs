@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Formulário</title>
+</head>
+<body>
+    <section class="container">
+        <form action="/adicionarUsuario" method="post" id="formPrincipal">
+            <label for="nomeLabel">Nome:</label>
+            <input type="text" name="nome" id="nomeLabel">
+            <label for="emailLabel">E-mail:</label>
+            <input type="email" name="email" id="emailLabel">
+            <button type="submit">Adicionar</button>
+        </form>
+        <hr />
+        <article class="usuario">
+            <ul>
+                <% users.map(user => { %>
+                    <li>
+                        <span>Nome:</span> <%= user.nome %>
+                        <span>E-mail:</span> <%= user.email %>
+                        <% let id = String(user._id) %>
+                        <button type="button" onclick="handleDeleteUser('<%= id %>')">Excluir</button>
+                        <button type="button"><a href="/usuario/editar/<%= id %>">Editar</a></button>
+                    </li>
+                <% }) %>
+            </ul>
+        </article>
+    </section>
+    <script>
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+</body>
+</html>
