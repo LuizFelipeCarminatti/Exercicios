@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOGO - Pedra Papel Tesoura</title>
+</head>
+<body>
+    <input type="text" id="mao">
+    <button onclick="jogar()">jogar</button>
+
+    <script>
+        function jogar() {
+            let mao = document.getElementById('mao').value
+            let maos = [ 'Pedra', 'Papel', 'Tesoura' ]
+            let aleatorio = Math.floor(Math.random() * maos.length)
+            let robo = maos[aleatorio]
+            
+            if (mao == 'pedra' && robo == 'Pedra' || mao == 'tesoura' && robo == 'Tesoura' || mao == 'papel' && robo == 'Papel') {
+                alert('Empate')
+            }else if (mao == 'pedra' && robo == 'Tesoura') {
+                alert('Você ganhou ' + robo)
+            }else if (mao == 'tesoura' && robo == 'Pedra') {
+                alert('Você perdeu ' + robo)
+            }else if (mao == 'pedra' && robo == 'Papel') {
+                alert('Você perdeu ' + robo)
+            }else if(mao == 'papel' && robo == 'Pedra'){
+                alert('Você ganhou ' + robo)
+            }else if (mao == 'tesoura' && robo == 'Papel') {
+                alert('Você ganhou ' + robo)
+            }else if (mao == 'papel' && robo == 'Tesoura') {
+                alert('Você perdeu ' + robo)
+            }
+
+        }
+    </script>
+</body>
+</html>

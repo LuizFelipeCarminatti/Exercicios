@@ -1,0 +1,17 @@
+.window{
+    background-color: rgb(223, 223, 226);
+    width: 700px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: 2s all ease;
+}

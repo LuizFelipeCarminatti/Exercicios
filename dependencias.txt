@@ -25,17 +25,14 @@ dependencies:{
         REGENETATOR-RUNTIME -> O regenerator-runtime é uma biblioteca JavaScript que permite que você utilize a sintaxe de async/await em ambientes que não a suportam nativamente.
 
         CORS -> CORS (Cross-Origin Resource Sharing) é um mecanismo de segurança implementado nos navegadores que permite que um aplicativo web faça requisições a um servidor em um domínio diferente daquele onde o aplicativo está hospedado.
+
+        DEBUG -> é o processo de identificar e corrigir erros (bugs) em um código JavaScript. É como um detetive investigando uma cena de crime, mas no mundo da programação.
     }
 
     frontend: {
         AXIOS -> O Axios é uma biblioteca JavaScript popular e fácil de usar, projetada para fazer requisições HTTP, tanto em navegadores quanto em ambientes Node.js. Ele serve como um cliente HTTP, facilitando a comunicação com APIs e serviços web.
     }
 
-    webpack : {
-        CSS-LOADER -> O CSS-loader é um loader essencial para o Webpack que permite que você importe arquivos CSS diretamente nos seus módulos JavaScript. Ele funciona como uma ponte entre o mundo do JavaScript e o mundo do CSS, permitindo que você utilize CSS dentro da sua estrutura de módulos.
-
-        STYLE-LOADER -> O style-loader é um loader essencial no desenvolvimento de aplicações web com ferramentas como Webpack. Sua principal função é injetar estilos CSS diretamente no <head> do seu HTML durante a compilação do seu projeto.
-    }
 }
 
 devDependencies: {
@@ -51,6 +48,28 @@ devDependencies: {
         WEBPACK -> é um poderoso empacotador de módulos (module bundler) para aplicações JavaScript modernas. Ele atua como um construtor, analisando seu projeto e gerando um ou mais arquivos (bundles) que contêm todo o código necessário para sua aplicação funcionar.
 
         WEBPACK-CLI -> é a interface de linha de comando (CLI) do Webpack. Ele fornece uma forma simples e direta de interagir com o Webpack, permitindo que você execute comandos para construir seus projetos e gerenciar suas configurações.
+
+        CSS-LOADER -> O CSS-loader é um loader essencial para o Webpack que permite que você importe arquivos CSS diretamente nos seus módulos JavaScript. Ele funciona como uma ponte entre o mundo do JavaScript e o mundo do CSS, permitindo que você utilize CSS dentro da sua estrutura de módulos.
+
+        STYLE-LOADER -> O style-loader é um loader essencial no desenvolvimento de aplicações web com ferramentas como Webpack. Sua principal função é injetar estilos CSS diretamente no <head> do seu HTML durante a compilação do seu projeto.
+
+        CSS-MIIMZER-WEBPACK-PLUGIN -> é um plugin essencial para otimizar o tamanho dos seus arquivos CSS em projetos que utilizam o Webpack. Sua principal função é minimificar o código CSS, removendo espaços em branco, comentários e utilizando nomes de classes mais curtos, sem afetar a funcionalidade do estilo.
+
+        FILE-LOADER -> é um loader muito utilizado em projetos Webpack que serve para gerenciar e otimizar a importação de arquivos estáticos, como imagens, fontes, arquivos de áudio e outros tipos de arquivos que não são diretamente processados pelo Webpack.
+
+        HTML-MINIMIZER-WEBPACK-PLUGIN -> é um plugin essencial para otimizar o tamanho dos seus arquivos HTML em projetos que utilizam o Webpack. Sua principal função é minimificar o código HTML, removendo espaços em branco, comentários e utilizando uma sintaxe mais concisa, sem afetar a estrutura ou o conteúdo da página.
+
+        HTML-WEBPACK-PLUGIN -> é um plugin fundamental para projetos Webpack que simplifica a criação de arquivos HTML que servem como ponto de entrada para seus bundles Webpack. Ele é especialmente útil para projetos que geram bundles com nomes de arquivos que mudam a cada compilação, como quando se utiliza hash para otimizar o cache.
+
+        MINI-CSS-EXTRACT-PLUGIN -> é um plugin essencial para projetos Webpack que trabalham com CSS. Sua principal função é extrair o CSS dos seus módulos JavaScript e gerar arquivos CSS separados. Isso é especialmente útil em projetos de produção, onde a separação do CSS em arquivos individuais pode melhorar o desempenho da sua aplicação.
+
+        NODE-SASS -> é uma biblioteca essencial para desenvolvedores que utilizam a linguagem de pré-processamento CSS Sass. Ela serve como uma ponte entre o Sass e o Node.js, permitindo que você compile seus arquivos Sass em CSS de forma eficiente e automatizada dentro do seu ambiente de desenvolvimento.
+
+        SASS-LOADER -> é um loader essencial para projetos que utilizam o Webpack e a linguagem de pré-processamento CSS Sass. Ele desempenha um papel crucial na integração do Sass ao seu fluxo de trabalho de desenvolvimento, permitindo que você utilize todas as poderosas funcionalidades do Sass diretamente nos seus projetos.
+
+        TERSER-WEBPACK-PLUGIN -> é um plugin essencial para projetos que utilizam o Webpack e buscam otimizar o tamanho e o desempenho de seus arquivos JavaScript. Sua principal função é minimificar o código JavaScript, removendo espaços em branco, comentários e utilizando uma sintaxe mais concisa, sem alterar a funcionalidade do código.
+
+        WEBPACK-DEV-SERVER -> é uma ferramenta poderosa e muito utilizada no desenvolvimento de aplicações web com Webpack. Ele funciona como um servidor de desenvolvimento local que oferece uma série de benefícios para agilizar o seu fluxo de trabalho.
     }
 } 
 
