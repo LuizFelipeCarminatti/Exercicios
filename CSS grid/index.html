@@ -1,56 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>CSS grid</title>
-    <style>
-        body {
-            display: grid;
-            height: 100vh;
-            grid-template-columns: 300px 1fr;
-            grid-template-rows: 100px 1fr 100px;
-            grid-template-areas:
-                'cabecalho cabecalho'
-                'menu conteudo'
-                'rodape rodape';
-        }
-
-        main {
-            grid-area: conteudo;
-        }
-
-        aside {
-            grid-area: menu;
-        }
-
-        header {
-            grid-area: cabecalho;
-        }
-
-        footer {
-            grid-area: rodape;
-        }
-
-        .tag {
-            border: solid 4px;
-        }
-    </style>
 </head>
-
 <body>
-    <main class="tag"></main>
+    <main class="tag">
+        <section class="tag"></section>
+        <section class="tag"></section>
+        <section class="tag"></section>
+        <section class="tag"></section>
+        <section class="tag"></section>
+    </main>
     <aside class="tag"></aside>
     <header class="tag"></header>
     <footer class="tag"></footer>
-
     <script>
         const cores = {
             main: '#40E609',
             aside: '#E6E009',
             header: '#1C35ED',
             footer: '#EA0B05',
+            section: '#d2691e',
             padrao: '#272727',
             get(tag) {
                 return this[tag] ? this[tag] : this.padrao
@@ -61,16 +34,7 @@
             let tagName = elemento.tagName.toLowerCase()
 
             elemento.style.borderColor = cores.get(tagName)
-
-
-            if (!elemento.classList.contains('nolabel')) {
-                let label = document.createElement('label')
-                label.style.backgroundColor = cores.get(tagName)
-                label.innerHTML = tagName
-                elemento.insertBefore(label, elemento.childNodes[0])
-            }
         })
     </script>
 </body>
-
 </html>

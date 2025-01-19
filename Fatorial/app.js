@@ -2,7 +2,6 @@ function verificar() {
     let valor = document.getElementById('valor').value
     let res = document.getElementById('res')
     let total = 1
-    sequencia.innerHTML = ''
     for (let i = 1; i <= valor; i++) {
         total *= i
     }

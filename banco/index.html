@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Banco Eterns</title>
+</head>
+<body>
+    
+    <section>
+        <article>
+            <h1>Entrar na conta</h1>
+            <input type="text" name="entrar_nome" id="entrar_nome" placeholder="Nome: ">
+            <button onclick="entrar()">Entrar</button>
+        </article>
+        <article>
+            <h1>Cadastrar</h1>
+            <input type="text" name="nome" id="nome" placeholder="Nome: ">
+            <input type="text" name="valor" id="valor" placeholder="Valor: ">
+            <button onclick="cadastra()">Cadastra-se</button>
+        </article>
+        <article>
+            <h1>PIX</h1>
+            <input type="text" name="valor_pix" id="valor_pix" placeholder="Valor do Pix">
+            <input type="text" name="destinatario" id="destinatario" placeholder="Destinatário: ">
+            <button onclick="enviar()">Enviar</button>
+        </article>
+        <article>
+            <p id="nome_usuario"></p>
+            <p id="valor_usuario"></p>
+        </article>
+    </section>
+
+
+
+
+
+    <script src="coding.js"></script>
+</body>
+</html>

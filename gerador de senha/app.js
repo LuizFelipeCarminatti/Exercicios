@@ -5,7 +5,7 @@ let minuscula = document.getElementById('minuscula')
 let numero = document.getElementById('numero')
 let simbolos = document.getElementById('simbolos')
 
-let range = () => Math.floor(Math.random() * (min - max) + max)
+let range = (min, max) => Math.floor(Math.random() * (min - max) + max)
 function maiusculaFunction() {
     let resMaiuscula = String.fromCharCode(range(65, 90))
     return resMaiuscula
@@ -33,12 +33,10 @@ function gerarSenha() {
     if (numero.checked) funcoes.push(numeroFunction) 
     if (simbolos.checked) funcoes.push(simbolosFunction) 
 
-    for (let i = 0; i < qtd; i++) {
+    for (let i = 1; i <= qtd; i++) {
         let aleatorio = Math.floor(Math.random() * funcoes.length)
 
-        let funcao = funcoes[aleatorio]
-
-        let caracteres = funcao()
-        senha.innerHTML += caracteres
+        let caracteres = funcoes[aleatorio]
+        senha.innerHTML += caracteres()
     }    
 }

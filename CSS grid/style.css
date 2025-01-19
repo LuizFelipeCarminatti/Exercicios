@@ -1,0 +1,52 @@
+body {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-areas:
+        'cabecalho cabecalho'
+        'menu conteudo'
+        'rodape rodape';
+}
+
+main {
+    grid-area: conteudo;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+aside {
+    grid-area: menu;
+}
+
+header {
+    grid-area: cabecalho;
+}
+
+footer {
+    grid-area: rodape;
+}
+
+.tag {
+    border: solid 4px;
+}
+
+section{
+    width: 400px;
+    height: 400px;
+}
+
+@media (max-width: 768px) {
+    main{
+        flex-wrap: wrap;
+    }  
+    aside{
+        display: none;
+    } 
+    body{
+        grid-template-columns: 1fr;
+    }
+    section{
+        margin: auto;
+    }
+}

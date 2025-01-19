@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .fundo{
+            width: 100%;
+        }
+        .meteoro1{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .meteoro2{
+            position: absolute;
+            top: 200px;
+            left: 0px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <img src="pexels-samkolder-2387877.jpg" alt="universo" class="fundo">
+    <img src="c7d18898fa1960e912e0f3123ebb60ec.png" alt="meteoro1" title="meteoro1" class="meteoro1">
+    <img src="kisspng-meteoroid-meteorite-clip-art-falling-meteorite-5a7bb20e809771.8480890715180559505267.png" alt="meteoro1" title="meteoro2" class="meteoro2">
+
+    <script>
+        let deslocamento1 = 0
+        let deslocamentoTop = 200
+        let deslocamentoLeft = 0
+        let deslocamentoWidth = window.innerWidth
+        let img1 = document.querySelector('.meteoro1')
+        let img2 = document.querySelector('.meteoro2')
+        window.addEventListener('scroll', () => {
+            deslocamento1 += 40
+            deslocamentoTop += 10
+            deslocamentoLeft += 10
+            if (window.scrollY > 0) {
+                img1.style.left = deslocamento1 + 'px'
+                img1.style.top = deslocamento1 + 'px'
+                img2.style.left = deslocamentoLeft + 'px'
+                img2.style.top = deslocamentoTop + 'px'
+            }
+            let posicaoImg1 = img1.getBoundingClientRect()
+            let posicaoImg2 = img2.getBoundingClientRect()
+
+            if (posicaoImg1.left > deslocamentoWidth) {
+                img1.style.display = 'none'
+            }
+            
+            if (posicaoImg2.left > deslocamentoWidth) {
+                img2.style.display = 'none'
+            }
+        })
+    </script>
+</body>
+</html>

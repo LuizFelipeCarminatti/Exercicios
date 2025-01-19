@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternando Cores</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        body{
+            background-color: #000;
+        }
+
+        h1{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 50px;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation-name: alternando;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes alternando {
+            0%{
+                background-color: blue;
+            }25%{
+                background-color: crimson;
+            }50%{
+                background-color: darkcyan;
+            }75%{
+                background-color: darkgreen;
+            }100%{
+                background-color: darkred;
+            }            
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Luiz Felipe Carminatti</h1>
+
+    <script>
+
+    </script>
+</body>
+</html>
