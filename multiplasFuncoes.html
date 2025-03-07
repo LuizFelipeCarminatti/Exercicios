@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimentos automáticos</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        div.div1 {
+            background-color: yellowgreen;
+        }
+
+        div.div2 {
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+    <script>
+        
+        let moviment = 0
+
+        let funcao2 = (elementoClass) => {
+            let elemento = document.querySelector(elementoClass)
+            
+            if (moviment < 200) {
+                moviment++
+            }else{
+                return
+            }
+
+            let left = parseInt(elemento.style.left) || 0
+            let topElem = parseInt(elemento.style.top) || 0
+
+
+            if (left < 200 && topElem < 200) {
+                elemento.style.left = moviment + 'px'
+                elemento.style.top = moviment + 'px'
+            }else{
+                return
+            }
+        }
+
+        
+        let arrayFuncoes = [ funcao2]
+
+        let funcaoAleatoria1 = Math.floor(Math.random() * arrayFuncoes.length)
+        let exec1 = arrayFuncoes[funcaoAleatoria1]
+
+        setInterval(() => {
+            exec1('.div1')
+        }, 20);
+
+        let funcaoAleatoria2 = Math.floor(Math.random() * arrayFuncoes.length)
+        let exec2 = arrayFuncoes[funcaoAleatoria2]
+
+        setInterval(() => {
+            exec2('.div2')
+        }, 20);
+
+
+    </script>
+</body>
+
+</html>

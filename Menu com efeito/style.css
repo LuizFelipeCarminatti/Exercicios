@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: #272727;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    overflow: hidden;
+}
+
+header nav{
+    flex-grow: 1;
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li{
+    list-style: none;
+    background-color: #5c5b5b;
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px;
+    margin: 5px;
+}
+
+header .btnMenu{
+    font-size: 25px;
+    color: aliceblue;
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    header{
+        height: 60px;
+        display: flex;
+        overflow: hidden;
+        transition: height 1s ease;
+    }
+
+    header nav{
+        align-self: start;
+        width: 100%;
+        position: relative;
+        top: 60px;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    header nav ul li{
+        text-align: center;
+        width: 100%;
+        color: aliceblue;
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    header .btnMenu{
+        display: block;
+        align-self: flex-start;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+}
+
+.efeitoMenu{
+    height: 320px;
+}
+
+.efeitoNav{
+    display: block;
+}
