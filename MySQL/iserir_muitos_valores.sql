@@ -1,0 +1,49 @@
+INSERT INTO users (nome) VALUES 
+(
+    "Tanner"
+  ),
+(
+    "Brittany"
+  ),
+(
+    "Ferris"
+  ),
+(
+    "Jacob"
+  ),
+(
+    "Keelie"
+  ),
+(
+    "Benjamin"
+  ),
+(
+    "Aspen"
+  ),
+(
+    "Oprah"
+  ),
+(
+    "Lynn"
+  ),
+(
+    "Wayne"
+  ),
+(
+    "Shana"
+  ),
+(
+    "Merrill"
+  ),
+(
+    "Minerva"
+  ),
+(
+    "Ishmael"
+  ),
+(
+    "Xyla"
+  ),
+(
+    "Giacomo"
+  )
