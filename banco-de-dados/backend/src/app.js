@@ -1,3 +1,6 @@
+const dotenv = require('dotenv')
+dotenv.config()
+require('./database')
 const express = require('express')
 const routes = require('./routes/homeRoutes.js')
 
@@ -19,3 +22,6 @@ class App {
 }
 
 module.exports = new App().app
+
+// npx sequelize migration:create --name=alunos -> Cria o modulo de alunos dentro da pasta database
+// npx sequelize db:migrate -> Ex: executa o arquivo alunos da pasta database, criando a tabela alunos no MySQL workbench
