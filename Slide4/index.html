@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .container {
+            height: 100vh;
+            gap: 10px;
+            max-width: 1000px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        section {
+            border: 2px solid aquamarine;
+            border-radius: 10px;
+            padding: 10px;
+            width: 300px;
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="prevBtn" onclick="prevFn()">prev</button>
+    <div class="container" id="cont"></div>
+    <button id="nextBtn" onclick="nextFn()">next</button>
+    <script src="./script.js"></script>
+
+    <script>
+        const slides = [
+            { imgUrl: 'https://www.getninjas.com.br/_next/image?url=https%3A%2F%2Fsite-clientes-assets.getninjas.com.br%2Fimages%2Fshared%2Fmain-services%2Fmontador.jpg&w=384&q=75 ', text: 'Montagem de móveis' },
+            { imgUrl: 'https://www.getninjas.com.br/_next/image?url=https%3A%2F%2Fsite-clientes-assets.getninjas.com.br%2Fimages%2Fshared%2Fmain-services%2Fmudancas.png&w=384&q=75', text: 'Mudanças e Carretos' },
+            { imgUrl: 'https://www.getninjas.com.br/_next/image?url=https%3A%2F%2Fsite-clientes-assets.getninjas.com.br%2Fimages%2Fshared%2Fmain-services%2Fpedreiro.png&w=384&q=75', text: 'Serviço de Pedreiro' },
+            { imgUrl: 'https://www.getninjas.com.br/_next/image?url=https%3A%2F%2Fsite-clientes-assets.getninjas.com.br%2Fimages%2Fshared%2Fmain-services%2Fdiarista.png&w=384&q=75', text: 'Serviços de Diarista' },
+            { imgUrl: 'https://www.getninjas.com.br/_next/image?url=https%3A%2F%2Fsite-clientes-assets.getninjas.com.br%2Fimages%2Fshared%2Fmain-services%2Feletricista.png&w=384&q=75', text: 'Serviço de Eletricista' },
+            { imgUrl: 'https://www.getninjas.com.br/_next/image?url=https%3A%2F%2Fsite-clientes-assets.getninjas.com.br%2Fimages%2Fshared%2Fmain-services%2Fpintor.jpg&w=384&q=75', text: 'Serviço de pintura' },
+        ]
+
+        function renderSlides() {
+            const container = document.getElementById('cont')
+            container.innerHTML = ''
+
+            slides.map(({ imgUrl, text }) => {
+                const section = document.createElement('section')
+                const img = document.createElement('img')
+                img.src = imgUrl
+                const p = document.createElement('p')
+                p.innerHTML = text
+                section.appendChild(img)
+                section.appendChild(p)
+                container.appendChild(section)
+            })
+        }
+
+        function prevFn() {
+            const lastSlide = slides.splice(slides.length - 1, 1)
+            slides.unshift(lastSlide[0])
+            renderSlides()
+        }
+
+        function nextFn() {
+            const firstSlide = slides.splice(0, 1)
+            slides.push(firstSlide[0])
+            renderSlides()
+        }
+
+        renderSlides()
+    </script>
+</body>
+
+</html>
